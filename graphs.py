@@ -40,6 +40,7 @@ print(df_2020["Life Ladder"].mean())
 # df1 = pd.read_csv("MortalityData.csv")
 # df2 = pd.read_csv("DataSci.csv")
 
+###Individual Countries###
 # filter by a country
 country_df = df2.loc[df2['Country name'] == 'Kenya']
 
@@ -52,6 +53,7 @@ plt.savefig("Kenya Healthy Life Expectancy at Birth")
 
 
 
+###Comparing covid deaths to various factors###
 
 df_2019 = df2[df2['year']==2019]
 df_2020 = df2[df2['year']==2020]
