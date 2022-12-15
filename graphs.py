@@ -36,3 +36,59 @@ print(df_2020["Life Ladder"].mean())
 # sns.barplot(x='Healthy life expectancy at birth' ,y='Country name',data=df_2020.nsmallest(10,'Healthy life expectancy at birth'),ax=axes[1,0],palette='OrRd')
 # sns.barplot(x='Freedom to make life choices' ,y='Country name',data=df_2020.nsmallest(10,'Freedom to make life choices'),ax=axes[1,1],palette='YlOrBr')
 # plt.show()
+
+# df1 = pd.read_csv("MortalityData.csv")
+# df2 = pd.read_csv("DataSci.csv")
+
+# filter by a country
+country_df = df2.loc[df2['Country name'] == 'Kenya']
+
+# print(final_df)
+country_df.plot('year', 'Healthy life expectancy at birth', color="Red")
+plt.xlabel('Year')
+plt.ylabel("Healthy Life Expectancy at Birth")
+plt.title("Kenya Healthy Life Expectancy at Birth")
+plt.savefig("Kenya Healthy Life Expectancy at Birth")
+
+
+
+
+df_2019 = df2[df2['year']==2019]
+df_2020 = df2[df2['year']==2020]
+
+# which should be x and which should be y?
+sns.lmplot(x ="Index of institutional trust", y ="COVID-19 deaths per 100,000 population in 2020", data = df1, order = 1, ci = None)
+
+plt.savefig("COVIDindex_graph.png")
+
+# merged dfs
+# to compare covid data to 2020 happiness
+df3 = pd.merge(df1, df_2020, how = 'inner')
+
+sns.lmplot(x ="COVID-19 deaths per 100,000 population in 2020", y = "Index of institutional trust", data = df3, order = 1, ci = 95)
+
+plt.savefig("COVIDindex_graph.png")
+
+sns.lmplot(x ="COVID-19 deaths per 100,000 population in 2020", y = "Social support", data = df3, order = 1, ci = 95)
+
+plt.savefig("COVIDvs_social.png")
+
+sns.lmplot(x ="COVID-19 deaths per 100,000 population in 2020", y = "Log GDP per capita", data = df3, order = 1, ci = 95)
+
+plt.savefig("COVIDvs_gdp.png")
+
+sns.lmplot(x ="COVID-19 deaths per 100,000 population in 2020", y = "Freedom to make life choices", data = df3, order = 1, ci = 95)
+
+plt.savefig("COVIDvs_free.png")
+
+sns.lmplot(x ="COVID-19 deaths per 100,000 population in 2020", y = "Freedom to make life choices", data = df3, order = 1, ci = 95)
+
+plt.savefig("COVIDvs_free.png")
+
+plt.savefig("COVIDindex_graph.png")
+
+plt.savefig("COVIDvs_free.png")
+
+
+
+
